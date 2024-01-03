@@ -1,0 +1,1 @@
+ZAuth app implements OAuth 2.0 and Open-ID Connect at a high level.
