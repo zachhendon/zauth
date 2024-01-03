@@ -1,14 +1,14 @@
 #App {
-    text-align: center;
-    margin-top: 9.6rem;
+  text-align: center;
+  margin-top: 9.6rem;
 }
 
 h1 {
-    font-size: 6.4em;
-    font-weight: 700;
+  font-size: 6.4em;
+  font-weight: 700;
 }
 
 p {
-    font-size: 2.4em;
-    font-weight: 300;
+  font-size: 2.4em;
+  font-weight: 300;
 }
