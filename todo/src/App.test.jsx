@@ -2,7 +2,6 @@ import App from "./App.jsx";
 import { render } from "./utils/test-utils.jsx";
 import { screen } from "@testing-library/dom";
 
-
 describe("Basic test", () => {
   test("Should show title", () => {
     render(<App />);
