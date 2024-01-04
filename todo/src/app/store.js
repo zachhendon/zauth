@@ -1,8 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import responseReducer from '../features/response/responseSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import responseReducer from "../features/response/responseSlice";
 
-export const store = configureStore({
+export const setupStore = preloadedState => {
+  return configureStore({
     reducer: {
-        response: responseReducer,
+      response: responseReducer,
+      ...preloadedState,
     },
-});
+  });
+};
+export const store = setupStore();
