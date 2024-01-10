@@ -1,0 +1,62 @@
+.task {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+svg {
+  width: 2.2rem;
+}
+svg:hover {
+  cursor: pointer;
+}
+
+
+.clicked {
+  animation: grow 0.15s forwards, shrink 0.15s 0.15s forwards;
+}
+
+@keyframes grow {
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shrink {
+  to {
+    transform: scale(1);
+  }
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+  position: fixed;
+  left: 3.2rem;
+  bottom: 3.2rem;
+  background-color: hsl(60, 30%, 75%);
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+}
+
+.popup .undo {
+  font-size: 1.6rem;
+  color: hsl(195, 53%, 50%);
+  padding: 0.8rem 1.6rem;
+}
+.popup .undo:hover {
+  cursor: pointer;
+  border-radius: 0.8rem;
+  background-color: hsl(60, 30%, 83%);
+}
+
+.popup img {
+  width: 2.4rem;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+}
+.popup img:hover {
+  cursor: pointer;
+  background-color: hsl(60, 30%, 83%);
+}

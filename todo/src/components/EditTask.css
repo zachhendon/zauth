@@ -1,0 +1,56 @@
+.edit-task {
+  border: solid black 2px;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.task-desc {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+.task-desc input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0.4rem;
+  margin: 0.2rem 0;
+}
+
+.edit-list-title-input {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.edit-list-due-input {
+  margin-right: 0.4rem;
+  padding: 0 0.4rem;
+}
+
+.edit-list-due-input,
+.edit-list-list-input {
+  box-sizing: border-box;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  border: solid black 1px;
+  border-radius: 0.5rem;
+}
+
+.edit-task-options {
+  display: flex;
+  justify-content: space-between;
+}
+.edit-task-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+.edit-task-buttons button {
+  width: 8rem;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+}
+.edit-task-buttons p {
+  font-size: 1.6rem;
+}

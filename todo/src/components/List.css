@@ -1,0 +1,124 @@
+.list {
+  margin-top: 4.8rem;
+  display: flex;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+
+.list-content {
+  width: 100%;
+}
+
+.list-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid black 1px;
+  margin-bottom: 1.6rem;
+}
+
+.trash-icon {
+  width: 3.2rem;
+  margin: auto 0 auto 0;
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+}
+.trash-icon:hover {
+  cursor: pointer;
+  background-color: #add8e6;
+}
+
+.chevron {
+  width: 3.2rem;
+  margin-top: 0.7rem;
+  padding: 0.2rem;
+  border-radius: 0.8rem;
+  align-self: baseline;
+  position: absolute;
+  left: -4.8rem;
+}
+.chevron:hover {
+  cursor: pointer;
+  background-color: #add8e6;
+}
+
+.delete-dialog {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background-color: hsl(70, 50%, 97%);
+  border-radius: 1.6rem;
+}
+
+.delete-dialog-div {
+  padding: 2.4rem;
+}
+
+.delete-dialog-div .message {
+  margin-bottom: 4rem;
+}
+
+.delete-dialog-buttons {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+}
+.delete-dialog-buttons button {
+  width: 9.6rem;
+}
+
+.delete-button {
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  background-color: #add8e6;
+}
+.delete-button:hover {
+  background-color: hsl(195, 53%, 74%);
+  cursor: pointer;
+}
+
+.cancel-button {
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  background-color: transparent;
+}
+.cancel-button:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 89%);
+}
+
+.add-task-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+}
+.add-task-button:hover {
+  cursor: pointer;
+}
+
+.add-task-icon {
+  width: 2.4rem;
+}
+
+.add-task-button p {
+  color: hsl(0, 0%, 35%);
+}
+
+.add-task-icon {
+  filter: brightness(0) saturate(100%) invert(50%) sepia(68%) saturate(432%)
+    hue-rotate(149deg) brightness(88%) contrast(87%);
+}
+.add-task-button:hover p {
+  color: #3691b0;
+}
+
+li {
+  padding-left: 0;
+  font-size: 2.2rem;
+}

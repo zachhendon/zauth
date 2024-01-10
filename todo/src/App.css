@@ -1,14 +1,40 @@
 #App {
-  text-align: center;
   margin-top: 9.6rem;
+  width: 144rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#todo {
+  text-align: center;
+  margin-bottom: 9.6rem;
 }
 
-h1 {
-  font-size: 6.4em;
-  font-weight: 700;
+.test {
+  margin-top: 4.8rem;
 }
 
-p {
-  font-size: 2.4em;
-  font-weight: 300;
+.add-list-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+}
+.add-list-button:hover {
+  cursor: pointer;
+}
+
+.add-list-icon {
+  width: 4.4rem;
+}
+
+.add-list-button h4 {
+  color: hsl(0, 0%, 35%);
+}
+
+.add-list-icon {
+  filter: brightness(0) saturate(100%) invert(50%) sepia(68%) saturate(432%)
+    hue-rotate(149deg) brightness(88%) contrast(87%);
+}
+.add-list-button:hover h4 {
+  color: #3691b0;
 }
