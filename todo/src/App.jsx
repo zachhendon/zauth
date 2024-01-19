@@ -40,16 +40,15 @@ function App() {
     </React.Fragment>
   ));
 
+  useEffect(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
 
-useEffect(() => {  
-  if (timerRef.current) {
-    clearTimeout(timerRef.current);
-  }
-
-  timerRef.current = setTimeout(() => {
-    dispatch(clearUndo());
-  }, 10000);
-}, [tasks.taskHistory]);
+    timerRef.current = setTimeout(() => {
+      dispatch(clearUndo());
+    }, 10000);
+  }, [tasks.taskHistory]);
 
   return (
     <div id="App">
