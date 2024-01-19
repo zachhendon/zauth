@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/user");
+const userRouter = require("./routes/user");
+const listRouter = require("./routes/list");
+const taskRouter = require("./routes/task");
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -15,7 +16,11 @@ app.use(
 
 app.use(express.json());
 
-app.use("/", indexRouter);
-app.use("/user", usersRouter);
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+app.use("/user", userRouter);
+app.use("/list", listRouter);
+app.use("/task", taskRouter);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));

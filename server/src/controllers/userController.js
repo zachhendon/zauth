@@ -8,6 +8,9 @@ exports.index = asyncHandler(async (req, res) => {
 
 exports.user_list = asyncHandler(async (req, res) => {
   const users = await userModel.getUsers();
+  for (let i = 0; i < users.length; i++) {
+    delete users[i].password;
+  }
   res.send(users);
 });
 
