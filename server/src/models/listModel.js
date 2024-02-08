@@ -23,7 +23,6 @@ exports.deleteList = async (list_id) => {
 
 exports.updateList = async (list_id, name) => {
   const query = `UPDATE list SET name = '${name}' WHERE id = ${list_id} RETURNING *`
-  console.log(query)
   const list = await db.query(query);
   return list.rows[0];
 }

@@ -2,9 +2,10 @@ import "./Task.css";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
-  editTask,
-  toggleTask,
+  editTaskDb,
+  toggleTaskDb,
   toggleTaskEdit,
+  deleteTaskDb,
 } from "../features/tasks/tasksSlice";
 import EditTask from "./EditTask";
 
@@ -16,29 +17,22 @@ export default function Task(props) {
   function handleClick() {
     setClicked(true);
     setTimeout(() => {
-      dispatch(toggleTask({ listId: props.listId, taskId: props.task.id }));
+      dispatch(toggleTaskDb({ listId: props.listId, taskId: props.task.id }));
     }, 300);
   }
 
   function handleSaveProp(newTask) {
-    if (newTask.listId !== props.listId) {
-      alert("List changed");
-      return;
-    }
     dispatch(
-      editTask({
-        listId: props.listId,
-        taskId: props.task.id,
-        newTask: {
-          ...newTask.task,
-          edit: false,
-        },
-      })
+      editTaskDb({ listId: props.listId, taskId: props.task.id, newTask })
     );
   }
 
   function handleCancelProp() {
     dispatch(toggleTaskEdit({ listId: props.listId, taskId: props.task.id }));
+  }
+
+  function handleDeleteProp() {
+    dispatch(deleteTaskDb({ listId: props.listId, taskId: props.task.id }));
   }
 
   useEffect(() => {
@@ -57,6 +51,8 @@ export default function Task(props) {
         listId={props.listId}
         handleSave={handleSaveProp}
         handleCancel={handleCancelProp}
+        handleDelete={handleDeleteProp}
+        delete={true}
       />
     );
   }
@@ -69,7 +65,7 @@ export default function Task(props) {
         onMouseLeave={() => setHovering(false)}
         onClick={handleClick}
       >
-        {!hovering && !clicked && (
+        {hovering == 0 && clicked == 0 && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -84,7 +80,7 @@ export default function Task(props) {
             />
           </svg>
         )}
-        {(hovering || clicked) && (
+        {(hovering == 1 || clicked == 1) && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -108,7 +104,7 @@ export default function Task(props) {
           )
         }
       >
-        {props.task.title}
+        {props.task.name}
       </p>
     </div>
   );

@@ -1,10 +1,11 @@
 import "./EditTask.css";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function EditTask(props) {
-  const [title, setTitle] = useState(props.task.title);
-  const [description, setDescription] = useState(props.task.description);
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState(props.task.name || "");
+  const [description, setDescription] = useState(props.task.description || "");
   const today = new Date().toISOString().split("T")[0];
   const [due, setDue] = useState(props.task.due || today);
   const lists = useSelector((state) => state.tasks.lists);
@@ -12,15 +13,7 @@ export default function EditTask(props) {
   const [disabled, setDisabled] = useState(true);
 
   function handleSave() {
-    const newTask = {
-      listId: list.id,
-      task: {
-        ...props.task,
-        title: title.trim(),
-        description: description.trim(),
-        due: due,
-      },
-    };
+    const newTask = { name: title, description, due };
     setTitle("");
     setDescription("");
     setDue(today);
@@ -43,7 +36,6 @@ export default function EditTask(props) {
   }
 
   useEffect(() => {
-    console.log(description);
     setDisabled(
       title === "" || title == undefined || due === "" || due == undefined
     );
@@ -78,9 +70,6 @@ export default function EditTask(props) {
           />
         </div>
         <div className="edit-task-buttons">
-          <button className="cancel-button" onClick={props.handleCancel}>
-            <p>Cancel</p>
-          </button>
           <button
             className="delete-button"
             onClick={handleSave}
@@ -88,6 +77,14 @@ export default function EditTask(props) {
           >
             <p>Save</p>
           </button>
+          <button className="cancel-button" onClick={props.handleCancel}>
+            <p>Cancel</p>
+          </button>
+          {props.delete && (
+            <button className="task-delete-button" onClick={props.handleDelete}>
+              <p>Delete</p>
+            </button>
+          )}
         </div>
       </div>
     </div>

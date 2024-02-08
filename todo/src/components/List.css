@@ -92,6 +92,17 @@
   background-color: hsl(0, 0%, 89%);
 }
 
+.task-delete-button {
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  background-color: hsl(15, 53%, 79%);
+}
+.task-delete-button:hover {
+  cursor: pointer;
+  background-color: hsl(15, 53%, 74%);
+}
+
 .add-task-button {
   display: inline-flex;
   align-items: center;

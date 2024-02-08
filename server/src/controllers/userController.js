@@ -47,7 +47,7 @@ exports.deleteUser = asyncHandler(async (req, res) => {
 exports.updateUser = asyncHandler(async (req, res) => {
   const id = req.params.id;
   const { name, email, password } = req.body;
-  if (!name && !email && !password) {
+  if (!name && !email && !password) { 
     res.status(400).send("Bad request");
     return;
   }

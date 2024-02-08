@@ -1,7 +1,7 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import List from "./components/List";
-import { addList, toggleTask, clearUndo } from "./features/tasks/tasksSlice";
+import { addListDb, clearUndo, fetchUserData } from "./features/tasks/tasksSlice";
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import EditList from "./components/EditList";
@@ -13,20 +13,18 @@ function App() {
   const tasks = useSelector((state) => state.tasks);
   const [addingList, setAddingList] = useState(false);
   const timerRef = useRef();
+  
+  useEffect(() => {
+    dispatch(fetchUserData())
+  }, [])
 
   function handleUndo() {
-    console.log(tasks.taskHistory);
     const task = tasks.taskHistory[tasks.taskHistory.length - 1];
     dispatch(toggleTask({ listId: task.listId, taskId: task.taskId }));
   }
 
-  function handleSubmitProp(title) {
-    const list = {
-      title,
-      edit: false,
-      tasks: [],
-    };
-    dispatch(addList(list));
+  function handleSubmitProp(name) {
+    dispatch(addListDb(name));
     setAddingList(false);
   }
 
@@ -57,7 +55,7 @@ function App() {
       <div className="test">
         {addingList ? (
           <EditList
-            title=""
+            name=""
             handleSubmit={handleSubmitProp}
             handleCancel={handleCancelProp}
           />

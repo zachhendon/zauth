@@ -2,8 +2,8 @@ import { useState } from "react";
 import "./EditList.css";
 
 export default function EditList(props) {
-  const [value, setValue] = useState(props.title);
-  const [disabled, setDisabled] = useState(props.title === "");
+  const [value, setValue] = useState(props.name);
+  const [disabled, setDisabled] = useState(props.name === "");
 
   function handleKeyDown(event) {
     if (event.key === "Enter" && !disabled) {
@@ -33,7 +33,7 @@ export default function EditList(props) {
       <div className="edit-list-buttons">
         <button
           className="delete-button"
-          onClick={props.handleSubmit}
+          onClick={() => props.handleSubmit(value.trim())}
           disabled={disabled}
         >
           <p>Save</p>

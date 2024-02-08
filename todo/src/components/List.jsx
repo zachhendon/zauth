@@ -4,10 +4,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useState, useRef } from "react";
 import {
-  deleteList,
-  addTask,
-  editListName,
+  deleteListDb,
+  editListDb,
   toggleListEdit,
+  addTaskDb,
 } from "../features/tasks/tasksSlice";
 import EditList from "./EditList";
 import TrashIcon from "../assets/trash.svg";
@@ -22,7 +22,7 @@ export default function List(props) {
   const [addingTask, setAddingTask] = useState(false);
   const deleteDialog = useRef();
   const emptyTask = {
-    title: "",
+    name: "",
     description: "",
     due: "",
     edit: false,
@@ -37,34 +37,43 @@ export default function List(props) {
     deleteDialog.current.showModal();
   }
   function confirmDelete() {
-    dispatch(deleteList(props.list.id));
+    dispatch(deleteListDb(props.list.id));
     deleteDialog.current.close();
   }
   function cancelDelete() {
     deleteDialog.current.close();
   }
-  // handles canceling the delete dialog if clicked outside
   useEffect(() => {
-    deleteDialog.current.addEventListener("click", () => {
+    const handleClick = (event) => {
       if (event.target === deleteDialog.current) {
         cancelDelete();
       }
-    });
-    deleteDialog.current.addEventListener("keydown", (event) => {
+    };
+
+    const handleKeyDown = (event) => {
       if (event.key === "Escape") {
         cancelDelete();
       }
       if (event.key === "Enter") {
         confirmDelete();
       }
-    });
-  });
+    };
 
-  function handleSubmitProp(title) {
-    if (title === "") {
+    deleteDialog.current.addEventListener("click", handleClick);
+    deleteDialog.current.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      if (!deleteDialog.current) return;
+      deleteDialog.current.removeEventListener("click", handleClick);
+      deleteDialog.current.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  function handleSubmitProp(name) {
+    if (name === "") {
       return;
     }
-    dispatch(editListName({ id: props.list.id, title: title }));
+    dispatch(editListDb({ listId: props.list.id, name }));
     dispatch(toggleListEdit(props.list.id));
   }
 
@@ -73,11 +82,8 @@ export default function List(props) {
   }
 
   function handleTaskSaveProp(newTask) {
-    const task = {
-      listId: props.list.id,
-      task: newTask.task,
-    };
-    dispatch(addTask(task));
+    const { name, description, due } = newTask;
+    dispatch(addTaskDb({ listId: props.list.id, name, description, due }));
   }
 
   function handleTaskCancelProp() {
@@ -85,7 +91,10 @@ export default function List(props) {
   }
 
   return (
-    <div className="list">
+    <div
+      className="list"
+      style={{ display: props.list.deleting ? "none" : "flex" }}
+    >
       {!props.list.edit && (
         <img
           src={collapsed ? ChevronRightIcon : ChevronDownIcon}
@@ -98,13 +107,13 @@ export default function List(props) {
         <div className="list-header">
           {props.list.edit ? (
             <EditList
-              title={props.list.title}
+              name={props.list.name}
               handleSubmit={handleSubmitProp}
               handleCancel={handleCancelProp}
             />
           ) : (
             <>
-              <h3 onClick={handleEdit}>{props.list.title}</h3>
+              <h3 onClick={handleEdit}>{props.list.name}</h3>
               <img
                 src={TrashIcon}
                 alt="trash"
@@ -144,7 +153,7 @@ export default function List(props) {
         <dialog className="delete-dialog" ref={deleteDialog}>
           <div className="delete-dialog-div">
             <p className="message">
-              Are you sure you want to delete <b>{props.list.title}</b>?
+              Are you sure you want to delete <b>{props.list.name}</b>?
             </p>
             <div className="delete-dialog-buttons">
               <button onClick={cancelDelete} className="cancel-button">
