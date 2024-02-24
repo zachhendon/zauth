@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+header .header {
+  background-color: #fff;
+  height: 7.2rem;
+}
+header a img {
+  width: 21.6rem;
+  margin-top: 0.6rem;
+}
+.login-page {
+  position: absolute;
+  width: 57.6rem;
+  margin: auto;
+  top: 25%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.form .login {
+  margin-top: -5rem;
+  margin-bottom: 4.2rem
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 57.6rem;
+  margin: 0 auto 16rem;
+  padding: 7.2rem;
+  text-align: center;
+  box-shadow: 0 0 3.2rem 0 rgba(0, 0, 0, 0.2), 0 0.8rem 0.8rem 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 2.4rem;
+  padding: 2.4rem;
+  box-sizing: border-box;
+  font-size: 2.4rem;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-color: #328f8a;
+  background-image: linear-gradient(45deg, #9dd0e1, #72bcd4);
+  width: 100%;
+  border: 0;
+  padding: 2.4rem;
+  color: #ffffff;
+  font-size: 2.4rem;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form .message {
+  margin: 2.4rem 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.register-redirect {
+  color: #3691af;
+}
+.register-redirect:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #328f8a;
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.error {
+  font-size: 1.5rem;
+  color: hsl(0, 80%, 50%);
+  font-weight: bold;
+  margin-top: -0.6rem;
+  margin-bottom: 1.8rem;
+  text-align: left;
+}
