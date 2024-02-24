@@ -6,7 +6,7 @@ import {
   toggleTaskDb,
   toggleTaskEdit,
   deleteTaskDb,
-} from "../features/tasks/tasksSlice";
+} from "../features/tasksSlice";
 import EditTask from "./EditTask";
 
 export default function Task(props) {

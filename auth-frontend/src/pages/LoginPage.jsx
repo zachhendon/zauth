@@ -134,7 +134,7 @@ function App() {
     }
     console.log(redirectUri);
     if (redirectUri) {
-      const newUrl = `http://${redirectUri}?auth_code=${authCode}`;
+      const newUrl = `${redirectUri}?auth_code=${authCode}`;
       window.location.href = newUrl;
     } else {
       navigate("/");

@@ -8,7 +8,7 @@ import {
   editListDb,
   toggleListEdit,
   addTaskDb,
-} from "../features/tasks/tasksSlice";
+} from "../features/tasksSlice";
 import EditList from "./EditList";
 import TrashIcon from "../assets/trash.svg";
 import ChevronDownIcon from "../assets/chevron-down.svg";
@@ -113,7 +113,7 @@ export default function List(props) {
             />
           ) : (
             <>
-              <h3 onClick={handleEdit}>{props.list.name}</h3>
+              <h4 onClick={handleEdit}>{props.list.name}</h4>
               <img
                 src={TrashIcon}
                 alt="trash"

@@ -1,0 +1,30 @@
+header {
+  background-color: burlywood;
+  padding: 3.2rem 0;
+}
+
+header .content {
+  justify-content: space-between;
+}
+
+.account {
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.account p {
+  padding: 0.8rem 1.6rem;
+}
+.header-login:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header-register {
+  border: solid black 1px;
+  border-radius: 0.6rem;
+}
+.header-register:hover {
+  cursor: pointer;
+  background-color: #d7c2a8;
+}

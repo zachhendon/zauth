@@ -1,5 +1,4 @@
-#App {
-  margin-top: 9.6rem;
+.content {
   width: 144rem;
   margin-left: auto;
   margin-right: auto;
@@ -37,4 +36,11 @@
 }
 .add-list-button:hover h4 {
   color: #3691b0;
+}
+
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
 }
